@@ -1,0 +1,121 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   */
+  :root {
+    /* Light theme (not default) */
+    --background: 0 0% 100%;
+    --foreground: 230 15% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 15% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 15% 10%;
+
+    --primary: 195 100% 40%; /* aqua */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 270 95% 65%; /* violet */
+    --secondary-foreground: 240 5% 10%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 46%;
+
+    --accent: 270 95% 65%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 20% 92%;
+    --input: 215 20% 92%;
+    --ring: 195 100% 40%;
+
+    --radius: 0.8rem;
+
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 230 15% 12%;
+    --sidebar-primary: 195 100% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 95% 65%;
+    --sidebar-accent-foreground: 240 5% 10%;
+    --sidebar-border: 215 20% 92%;
+    --sidebar-ring: 195 100% 40%;
+
+    /* Extra tokens for neon glows */
+    --aqua: 195 100% 50%;
+    --violet: 275 95% 65%;
+  }
+
+  .dark {
+    --background: 230 20% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 230 22% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 230 22% 9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 195 100% 50%; /* aqua */
+    --primary-foreground: 230 22% 9%;
+
+    --secondary: 275 95% 65%; /* violet */
+    --secondary-foreground: 230 22% 9%;
+
+    --muted: 230 18% 14%;
+    --muted-foreground: 215 15% 75%;
+
+    --accent: 275 95% 65%;
+    --accent-foreground: 230 22% 9%;
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 18% 18%;
+    --input: 230 18% 18%;
+    --ring: 195 100% 50%;
+
+    --sidebar-background: 230 22% 9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 230 22% 9%;
+    --sidebar-accent: 275 95% 65%;
+    --sidebar-accent-foreground: 230 22% 9%;
+    --sidebar-border: 230 18% 18%;
+    --sidebar-ring: 195 100% 50%;
+
+    --aqua: 195 100% 60%;
+    --violet: 275 95% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-screen;
+    background-image: radial-gradient(1200px 600px at 20% -10%, hsl(var(--aqua)/0.15), transparent 60%), radial-gradient(900px 500px at 110% 10%, hsl(var(--violet)/0.12), transparent 60%), radial-gradient(1000px 600px at -10% 100%, hsl(var(--aqua)/0.08), transparent 60%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 dark:bg-white/5 backdrop-blur-xl border border-white/10 shadow-glass;
+  }
+  .neon-text {
+    text-shadow: 0 0 6px hsl(var(--aqua)/0.6), 0 0 16px hsl(var(--violet)/0.35);
+  }
+}
