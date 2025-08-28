@@ -13,16 +13,24 @@ export default defineConfig(({ mode }) => ({
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
   },
+    base: "./",
   build: {
-    outDir: "dist",
+    outDir: "dist/spa",
   },
   plugins: [react(), expressPlugin()],
+  // resolve: {
+  //   alias: {
+  //     "@": path.resolve(__dirname, "./client"),
+  //     "@shared": path.resolve(__dirname, "./shared"),
+  //   },
+  // },
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./client"),
-      "@shared": path.resolve(__dirname, "./shared"),
-    },
+  alias: {
+    "@": path.resolve(__dirname, "./client"),
+    "@shared": path.resolve(__dirname, "./shared"),
   },
+}
+
 }));
 
 function expressPlugin(): Plugin {
